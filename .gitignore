@@ -1,0 +1,6 @@
+.DS_Store
+.env
+/bin/
+/tmp/
+/.cache/
+artifacts/chaos/*.tmp

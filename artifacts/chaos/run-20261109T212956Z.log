@@ -1,0 +1,126 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.00kB done
+#1 DONE 0.0s
+
+#2 [worker internal] load build definition from Dockerfile
+#2 transferring dockerfile: 340B done
+#2 DONE 0.0s
+
+#3 [api internal] load metadata for docker.io/library/alpine:3.22
+#3 DONE 0.7s
+
+#4 [api internal] load metadata for docker.io/library/golang:1.25-alpine
+#4 DONE 0.7s
+
+#5 [worker internal] load .dockerignore
+#5 transferring context: 80B done
+#5 DONE 0.0s
+
+#6 [api build 1/6] FROM docker.io/library/golang:1.25-alpine@sha256:1ae0735f00daffa3aaf1363a5184c0d2dc55c78e3db4ec70241cdac97bf84b59
+#6 DONE 0.0s
+
+#7 [api stage-1 1/3] FROM docker.io/library/alpine:3.22@sha256:49340b346798875b5592e5d420241f2f9cfba5f47e62ebb1446a1b34734e898f
+#7 DONE 0.0s
+
+#8 [api internal] load build context
+#8 transferring context: 20.74kB done
+#8 DONE 0.0s
+
+#9 [worker build 2/6] WORKDIR /src
+#9 CACHED
+
+#10 [worker build 3/6] COPY go.mod go.sum* ./
+#10 CACHED
+
+#11 [worker build 4/6] RUN go mod download
+#11 CACHED
+
+#12 [worker build 5/6] COPY . .
+#12 DONE 0.1s
+
+#13 [api build 6/6] RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /out/soup ./cmd/soup
+#13 DONE 6.0s
+
+#14 [api stage-1 2/3] RUN adduser -D -u 10001 soup
+#14 CACHED
+
+#15 [api stage-1 3/3] COPY --from=build /out/soup /usr/local/bin/soup
+#15 DONE 0.1s
+
+#16 [worker] exporting to image
+#16 exporting layers 0.0s done
+#16 writing image sha256:412e80b5862556832ef7f2d5f740cfc30b374df0886933378eb7d542e55b020d 0.0s done
+#16 naming to docker.io/library/soupsow-worker done
+#16 DONE 0.1s
+
+#17 [api] exporting to image
+#17 exporting layers 0.0s done
+#17 writing image sha256:20dcc1c7ca2ef7aa308755dadc9f43a603f42b3361b083d765df3b6156d7a550 done
+#17 naming to docker.io/library/soupsow-api 0.0s done
+#17 DONE 0.1s
+
+#18 [api] resolving provenance for metadata file
+#18 DONE 0.0s
+
+#19 [worker] resolving provenance for metadata file
+#19 DONE 0.0s
+ soupsow-api  Built
+ soupsow-worker  Built
+ Container soupsow-db-1  Running
+ Container soupsow-api-1  Recreate
+ Container soupsow-worker-2  Recreate
+ Container soupsow-worker-7  Recreate
+ Container soupsow-worker-3  Recreate
+ Container soupsow-worker-6  Recreate
+ Container soupsow-worker-4  Recreate
+ Container soupsow-worker-1  Recreate
+ Container soupsow-worker-8  Recreate
+ Container soupsow-worker-5  Recreate
+ Container soupsow-worker-3  Recreated
+ Container soupsow-worker-2  Recreated
+ Container soupsow-worker-4  Recreated
+ Container soupsow-worker-7  Recreated
+ Container soupsow-worker-6  Recreated
+ Container soupsow-worker-1  Recreated
+ Container soupsow-worker-5  Recreated
+ Container soupsow-worker-8  Recreated
+ Container soupsow-api-1  Recreated
+ Container soupsow-db-1  Waiting
+ Container soupsow-db-1  Waiting
+ Container soupsow-db-1  Healthy
+ Container soupsow-db-1  Healthy
+ Container soupsow-worker-8  Starting
+ Container soupsow-api-1  Starting
+ Container soupsow-worker-8  Started
+ Container soupsow-worker-2  Starting
+ Container soupsow-api-1  Started
+ Container soupsow-worker-2  Started
+ Container soupsow-worker-3  Starting
+ Container soupsow-worker-3  Started
+ Container soupsow-worker-4  Starting
+ Container soupsow-worker-4  Started
+ Container soupsow-worker-1  Starting
+ Container soupsow-worker-1  Started
+ Container soupsow-worker-5  Starting
+ Container soupsow-worker-5  Started
+ Container soupsow-worker-7  Starting
+ Container soupsow-worker-7  Started
+ Container soupsow-worker-6  Starting
+ Container soupsow-worker-6  Started
+2026-11-09T21:30:07.260272Z run_started run_id=chaos-20261109T213007.244907000Z jobs=200 workers=8 rate=0 kill_interval=1s
+2026-11-09T21:30:07.425737Z submissions_finished request_errors=0 duplicate_posts=67
+2026-11-09T21:30:07.427457Z progress terminal=20/200 kills=0
+2026-11-09T21:30:08.619958Z worker_sigkill number=1 container=6d7204b88c99
+2026-11-09T21:30:09.055311Z worker_replacement_started container=6d7204b88c99
+2026-11-09T21:30:09.430725Z progress terminal=112/200 kills=1
+2026-11-09T21:30:10.472607Z worker_sigkill number=2 container=334465010ee7
+2026-11-09T21:30:10.876462Z worker_replacement_started container=334465010ee7
+2026-11-09T21:30:11.433967Z progress terminal=198/200 kills=2
+2026-11-09T21:30:12.215884Z worker_sigkill number=3 container=334465010ee7
+2026-11-09T21:30:12.621615Z worker_replacement_started container=334465010ee7
+2026-11-09T21:30:13.43655Z progress terminal=199/200 kills=3
+2026-11-09T21:30:13.696957Z worker_sigkill number=4 container=75ac9c964602
+2026-11-09T21:30:14.115592Z worker_replacement_started container=75ac9c964602
+2026-11-09T21:30:15.347576Z worker_sigkill number=5 container=f529a85e5b75
+2026-11-09T21:30:15.701837Z summary {"run_id":"chaos-20261109T213007.244907000Z","requested_jobs":200,"job_rows":200,"queued":0,"running":0,"succeeded":180,"failed":0,"cancelled":20,"effects":180,"jobs_with_duplicate_effects":0,"inconsistent_final_states":0,"worker_attempts":183,"worker_sigkills":5,"duplicate_posts":67,"request_errors":0,"duplicate_id_mismatches":0,"duration":"8.457s","verdict":"PASS"}
+exit_code=0

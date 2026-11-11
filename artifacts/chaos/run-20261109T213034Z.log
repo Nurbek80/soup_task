@@ -1,0 +1,202 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.00kB done
+#1 DONE 0.0s
+
+#2 [api internal] load build definition from Dockerfile
+#2 transferring dockerfile: 340B done
+#2 DONE 0.0s
+
+#3 [worker internal] load metadata for docker.io/library/golang:1.25-alpine
+#3 DONE 0.6s
+
+#4 [api internal] load metadata for docker.io/library/alpine:3.22
+#4 DONE 0.6s
+
+#5 [api internal] load .dockerignore
+#5 transferring context: 80B done
+#5 DONE 0.0s
+
+#6 [worker stage-1 1/3] FROM docker.io/library/alpine:3.22@sha256:49340b346798875b5592e5d420241f2f9cfba5f47e62ebb1446a1b34734e898f
+#6 DONE 0.0s
+
+#7 [api build 1/6] FROM docker.io/library/golang:1.25-alpine@sha256:1ae0735f00daffa3aaf1363a5184c0d2dc55c78e3db4ec70241cdac97bf84b59
+#7 DONE 0.0s
+
+#8 [api internal] load build context
+#8 transferring context: 742B done
+#8 DONE 0.0s
+
+#9 [api build 2/6] WORKDIR /src
+#9 CACHED
+
+#10 [api build 3/6] COPY go.mod go.sum* ./
+#10 CACHED
+
+#11 [api build 6/6] RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /out/soup ./cmd/soup
+#11 CACHED
+
+#12 [api build 4/6] RUN go mod download
+#12 CACHED
+
+#13 [api stage-1 2/3] RUN adduser -D -u 10001 soup
+#13 CACHED
+
+#14 [api build 5/6] COPY . .
+#14 CACHED
+
+#15 [api stage-1 3/3] COPY --from=build /out/soup /usr/local/bin/soup
+#15 CACHED
+
+#16 [worker] exporting to image
+#16 exporting layers done
+#16 writing image sha256:412e80b5862556832ef7f2d5f740cfc30b374df0886933378eb7d542e55b020d done
+#16 naming to docker.io/library/soupsow-worker done
+#16 DONE 0.0s
+
+#17 [api] exporting to image
+#17 exporting layers done
+#17 writing image sha256:20dcc1c7ca2ef7aa308755dadc9f43a603f42b3361b083d765df3b6156d7a550 done
+#17 naming to docker.io/library/soupsow-api done
+#17 DONE 0.0s
+
+#18 [worker] resolving provenance for metadata file
+#18 DONE 0.0s
+
+#19 [api] resolving provenance for metadata file
+#19 DONE 0.0s
+ soupsow-api  Built
+ soupsow-worker  Built
+ Container soupsow-db-1  Running
+ Container soupsow-api-1  Running
+ Container soupsow-worker-1  Running
+ Container soupsow-worker-2  Running
+ Container soupsow-worker-3  Running
+ Container soupsow-worker-5  Running
+ Container soupsow-worker-6  Running
+ Container soupsow-worker-7  Running
+ Container soupsow-worker-8  Running
+ Container soupsow-db-1  Waiting
+ Container soupsow-db-1  Waiting
+ Container soupsow-db-1  Healthy
+ Container soupsow-db-1  Healthy
+ Container soupsow-worker-4  Starting
+ Container soupsow-worker-4  Started
+2026-11-09T21:30:36.887841Z run_started run_id=chaos-20261109T213036.869282000Z jobs=10000 workers=8 rate=100 kill_interval=2s
+2026-11-09T21:30:39.193591Z worker_sigkill number=1 container=1bd20d991da0
+2026-11-09T21:30:39.611522Z worker_replacement_started container=1bd20d991da0
+2026-11-09T21:30:41.830904Z worker_sigkill number=2 container=c881fc9013db
+2026-11-09T21:30:42.21318Z worker_replacement_started container=c881fc9013db
+2026-11-09T21:30:44.09805Z worker_sigkill number=3 container=334465010ee7
+2026-11-09T21:30:44.499555Z worker_replacement_started container=334465010ee7
+2026-11-09T21:30:46.764777Z worker_sigkill number=4 container=f529a85e5b75
+2026-11-09T21:30:47.173704Z worker_replacement_started container=f529a85e5b75
+2026-11-09T21:30:49.046779Z worker_sigkill number=5 container=6d7204b88c99
+2026-11-09T21:30:49.429076Z worker_replacement_started container=6d7204b88c99
+2026-11-09T21:30:51.470624Z worker_sigkill number=6 container=f529a85e5b75
+2026-11-09T21:30:51.858857Z worker_replacement_started container=f529a85e5b75
+2026-11-09T21:30:53.706069Z worker_sigkill number=7 container=75ac9c964602
+2026-11-09T21:30:54.098921Z worker_replacement_started container=75ac9c964602
+2026-11-09T21:30:56.463335Z worker_sigkill number=8 container=334465010ee7
+2026-11-09T21:30:56.844724Z worker_replacement_started container=334465010ee7
+2026-11-09T21:30:58.906269Z worker_sigkill number=9 container=334465010ee7
+2026-11-09T21:30:59.287397Z worker_replacement_started container=334465010ee7
+2026-11-09T21:31:01.352743Z worker_sigkill number=10 container=f529a85e5b75
+2026-11-09T21:31:01.749593Z worker_replacement_started container=f529a85e5b75
+2026-11-09T21:31:03.651753Z worker_sigkill number=11 container=8c34a44b068d
+2026-11-09T21:31:04.059102Z worker_replacement_started container=8c34a44b068d
+2026-11-09T21:31:06.399599Z worker_sigkill number=12 container=c881fc9013db
+2026-11-09T21:31:06.797541Z worker_replacement_started container=c881fc9013db
+2026-11-09T21:31:08.974919Z worker_sigkill number=13 container=1bd20d991da0
+2026-11-09T21:31:09.368138Z worker_replacement_started container=1bd20d991da0
+2026-11-09T21:31:11.180354Z worker_sigkill number=14 container=6d7204b88c99
+2026-11-09T21:31:11.56792Z worker_replacement_started container=6d7204b88c99
+2026-11-09T21:31:14.193104Z worker_sigkill number=15 container=f529a85e5b75
+2026-11-09T21:31:14.591514Z worker_replacement_started container=f529a85e5b75
+2026-11-09T21:31:16.655039Z worker_sigkill number=16 container=c881fc9013db
+2026-11-09T21:31:17.054505Z worker_replacement_started container=c881fc9013db
+2026-11-09T21:31:19.649325Z worker_sigkill number=17 container=f529a85e5b75
+2026-11-09T21:31:20.033817Z worker_replacement_started container=f529a85e5b75
+2026-11-09T21:31:22.598073Z worker_sigkill number=18 container=75ac9c964602
+2026-11-09T21:31:22.996308Z worker_replacement_started container=75ac9c964602
+2026-11-09T21:31:25.218509Z worker_sigkill number=19 container=f529a85e5b75
+2026-11-09T21:31:25.612275Z worker_replacement_started container=f529a85e5b75
+2026-11-09T21:31:27.78443Z worker_sigkill number=20 container=75ac9c964602
+2026-11-09T21:31:28.17254Z worker_replacement_started container=75ac9c964602
+2026-11-09T21:31:30.292615Z worker_sigkill number=21 container=6d7204b88c99
+2026-11-09T21:31:30.685005Z worker_replacement_started container=6d7204b88c99
+2026-11-09T21:31:32.786532Z worker_sigkill number=22 container=87ce2979c7b0
+2026-11-09T21:31:33.176947Z worker_replacement_started container=87ce2979c7b0
+2026-11-09T21:31:35.629253Z worker_sigkill number=23 container=f529a85e5b75
+2026-11-09T21:31:36.028515Z worker_replacement_started container=f529a85e5b75
+2026-11-09T21:31:38.285957Z worker_sigkill number=24 container=6d7204b88c99
+2026-11-09T21:31:38.67447Z worker_replacement_started container=6d7204b88c99
+2026-11-09T21:31:40.718978Z worker_sigkill number=25 container=c881fc9013db
+2026-11-09T21:31:41.11484Z worker_replacement_started container=c881fc9013db
+2026-11-09T21:31:43.302985Z worker_sigkill number=26 container=8c34a44b068d
+2026-11-09T21:31:43.694151Z worker_replacement_started container=8c34a44b068d
+2026-11-09T21:31:45.864123Z worker_sigkill number=27 container=75ac9c964602
+2026-11-09T21:31:46.248655Z worker_replacement_started container=75ac9c964602
+2026-11-09T21:31:48.407557Z worker_sigkill number=28 container=1bd20d991da0
+2026-11-09T21:31:48.812285Z worker_replacement_started container=1bd20d991da0
+2026-11-09T21:31:50.690649Z worker_sigkill number=29 container=1bd20d991da0
+2026-11-09T21:31:51.096959Z worker_replacement_started container=1bd20d991da0
+2026-11-09T21:31:53.344425Z worker_sigkill number=30 container=6d7204b88c99
+2026-11-09T21:31:53.74429Z worker_replacement_started container=6d7204b88c99
+2026-11-09T21:31:56.294821Z worker_sigkill number=31 container=6d7204b88c99
+2026-11-09T21:31:56.695966Z worker_replacement_started container=6d7204b88c99
+2026-11-09T21:31:59.079808Z worker_sigkill number=32 container=6d7204b88c99
+2026-11-09T21:31:59.475308Z worker_replacement_started container=6d7204b88c99
+2026-11-09T21:32:01.673419Z worker_sigkill number=33 container=1bd20d991da0
+2026-11-09T21:32:02.06087Z worker_replacement_started container=1bd20d991da0
+2026-11-09T21:32:04.409469Z worker_sigkill number=34 container=334465010ee7
+2026-11-09T21:32:04.801811Z worker_replacement_started container=334465010ee7
+2026-11-09T21:32:06.922863Z worker_sigkill number=35 container=6d7204b88c99
+2026-11-09T21:32:07.317276Z worker_replacement_started container=6d7204b88c99
+2026-11-09T21:32:09.282894Z worker_sigkill number=36 container=334465010ee7
+2026-11-09T21:32:09.683431Z worker_replacement_started container=334465010ee7
+2026-11-09T21:32:11.888757Z worker_sigkill number=37 container=87ce2979c7b0
+2026-11-09T21:32:12.277269Z worker_replacement_started container=87ce2979c7b0
+2026-11-09T21:32:14.724493Z worker_sigkill number=38 container=334465010ee7
+2026-11-09T21:32:15.118887Z worker_replacement_started container=334465010ee7
+2026-11-09T21:32:16.980383Z submissions_finished request_errors=0 duplicate_posts=3334
+2026-11-09T21:32:16.989128Z progress terminal=8102/10000 kills=38
+2026-11-09T21:32:17.518529Z worker_sigkill number=39 container=1bd20d991da0
+2026-11-09T21:32:17.940726Z worker_replacement_started container=1bd20d991da0
+2026-11-09T21:32:19.001689Z progress terminal=8234/10000 kills=39
+2026-11-09T21:32:20.242477Z worker_sigkill number=40 container=1bd20d991da0
+2026-11-09T21:32:20.651728Z worker_replacement_started container=1bd20d991da0
+2026-11-09T21:32:21.009369Z progress terminal=8373/10000 kills=40
+2026-11-09T21:32:22.962937Z worker_sigkill number=41 container=f529a85e5b75
+2026-11-09T21:32:23.013951Z progress terminal=8508/10000 kills=41
+2026-11-09T21:32:23.364575Z worker_replacement_started container=f529a85e5b75
+2026-11-09T21:32:25.023258Z progress terminal=8648/10000 kills=41
+2026-11-09T21:32:25.491649Z worker_sigkill number=42 container=1bd20d991da0
+2026-11-09T21:32:25.895695Z worker_replacement_started container=1bd20d991da0
+2026-11-09T21:32:27.035503Z progress terminal=8780/10000 kills=42
+2026-11-09T21:32:27.924259Z worker_sigkill number=43 container=f529a85e5b75
+2026-11-09T21:32:28.317836Z worker_replacement_started container=f529a85e5b75
+2026-11-09T21:32:29.052347Z progress terminal=8919/10000 kills=43
+2026-11-09T21:32:30.399471Z worker_sigkill number=44 container=f529a85e5b75
+2026-11-09T21:32:30.819367Z worker_replacement_started container=f529a85e5b75
+2026-11-09T21:32:31.059932Z progress terminal=9058/10000 kills=44
+2026-11-09T21:32:32.955983Z worker_sigkill number=45 container=8c34a44b068d
+2026-11-09T21:32:33.065154Z progress terminal=9192/10000 kills=45
+2026-11-09T21:32:33.359874Z worker_replacement_started container=8c34a44b068d
+2026-11-09T21:32:35.074264Z progress terminal=9333/10000 kills=45
+2026-11-09T21:32:35.617938Z worker_sigkill number=46 container=8c34a44b068d
+2026-11-09T21:32:36.029235Z worker_replacement_started container=8c34a44b068d
+2026-11-09T21:32:37.081903Z progress terminal=9464/10000 kills=46
+2026-11-09T21:32:37.945927Z worker_sigkill number=47 container=8c34a44b068d
+2026-11-09T21:32:38.351464Z worker_replacement_started container=8c34a44b068d
+2026-11-09T21:32:39.088377Z progress terminal=9603/10000 kills=47
+2026-11-09T21:32:40.186449Z worker_sigkill number=48 container=334465010ee7
+2026-11-09T21:32:40.596245Z worker_replacement_started container=334465010ee7
+2026-11-09T21:32:41.09814Z progress terminal=9742/10000 kills=48
+2026-11-09T21:32:42.965882Z worker_sigkill number=49 container=c881fc9013db
+2026-11-09T21:32:43.103954Z progress terminal=9877/10000 kills=49
+2026-11-09T21:32:43.351745Z worker_replacement_started container=c881fc9013db
+2026-11-09T21:32:45.113332Z progress terminal=9999/10000 kills=49
+2026-11-09T21:32:45.877749Z worker_sigkill number=50 container=75ac9c964602
+2026-11-09T21:32:46.281223Z worker_replacement_started container=75ac9c964602
+2026-11-09T21:32:47.623458Z summary {"run_id":"chaos-20261109T213036.869282000Z","requested_jobs":10000,"job_rows":10000,"queued":0,"running":0,"succeeded":9000,"failed":0,"cancelled":1000,"effects":9000,"jobs_with_duplicate_effects":0,"inconsistent_final_states":0,"worker_attempts":9049,"worker_sigkills":50,"duplicate_posts":3334,"request_errors":0,"duplicate_id_mismatches":0,"duration":"2m10.754s","verdict":"PASS"}
+exit_code=0

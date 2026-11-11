@@ -1,0 +1,6 @@
+.git
+.cache
+tmp
+artifacts
+bin
+.DS_Store
